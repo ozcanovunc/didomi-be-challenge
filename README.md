@@ -56,3 +56,17 @@ npm run test
 | Method | Route | Description |
 | :--- | :---: | ---: |
 | GET | `/health` | Check health status |
+
+## Coverage
+
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   90.32 |      100 |   78.57 |   91.56 |                   
+ models            |     100 |      100 |     100 |     100 |                   
+  EventModel.ts    |     100 |      100 |     100 |     100 |                   
+  UserModel.ts     |     100 |      100 |     100 |     100 |                   
+ services          |   88.15 |      100 |   76.92 |      90 |                   
+  EventService.ts  |     100 |      100 |     100 |     100 |                   
+  HealthService.ts |       0 |      100 |       0 |       0 | 1-13              
+  UserService.ts   |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------

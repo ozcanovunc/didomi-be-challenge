@@ -33,7 +33,7 @@ export class UserService {
     return userWithConsents;
   }
 
-  async createUser(user: UserModel): Promise<UserModel> {
+  async createUser(user: UserModel): Promise<any> {
     const userAlreadyExists = await this.usersRepository.findOne({ email: user.email });
     if (userAlreadyExists) {
       this.logger.error(`Create user failed, user already exists ${user.email}`);
