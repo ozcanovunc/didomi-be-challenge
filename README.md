@@ -6,7 +6,7 @@
 
 ## Description
 
-- Includes he solution of backend engineering [challenge](https://github.com/didomi/challenges/tree/master/backend) for Didomi
+- Includes he solution of backend engineering [challenge](https://github.com/didomi/challenges/tree/master/backend) for Didomi 🚀
 - [NestJS](https://nestjs.com/) is used as core framework 🐱
 
 ## Development Setup
@@ -28,6 +28,7 @@ docker run -p 3000:3000 app
 ```
 ## Test
 
+- Tests will be performed by Jest
 ```
 npm run test
 ```
@@ -69,4 +70,3 @@ All files          |   90.32 |      100 |   78.57 |   91.56 |
   EventService.ts  |     100 |      100 |     100 |     100 |                   
   HealthService.ts |       0 |      100 |       0 |       0 | 1-13              
   UserService.ts   |     100 |      100 |     100 |     100 |                   
--------------------|---------|----------|---------|---------|-------------------
