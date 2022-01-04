@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { EventModel } from '../models/EventModel';
 import { UserModel } from '../models/UserModel';
+import { AuditService } from './AuditService';
 
 @Injectable()
 export class EventService {
@@ -13,6 +14,7 @@ export class EventService {
     private eventRepository: Repository<EventModel>,
     @InjectRepository(UserModel)
     private usersRepository: Repository<UserModel>,
+    private auditService: AuditService,
   ) { }
 
   getAllEvents(): Promise<EventModel[]> {
@@ -32,13 +34,14 @@ export class EventService {
 
     consents.forEach(async ({ id: consent, enabled }) => {
       const query = { consent, userId };
-      const newRecord = { consent, userId, enabled };
-      const existingEvent =  await this.eventRepository.findOne(query);
+      const newRecord = { consent, userId, enabled } as EventModel;
+      const existingEvent = await this.eventRepository.findOne(query);
       if (existingEvent) {
         await this.eventRepository.update(query, { enabled });
       } else {
         await this.eventRepository.insert(newRecord);
       }
+      await this.auditService.createAuditForUser(userId, newRecord);
     });
 
     this.logger.log('Create event succeeded', { userId, consents });

@@ -52,6 +52,12 @@ npm run test
 | GET | `/events` | Retrieve all events |
 | POST | `/events` | Create event |
 
+> Audit
+
+| Method | Route | Description |
+| :--- | :---: | ---: |
+| GET | `/audit/:userId` | Get audit by user id |
+
 > Health
 
 | Method | Route | Description |
@@ -62,11 +68,13 @@ npm run test
 
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   90.32 |      100 |   78.57 |   91.56 |                   
+All files          |   89.83 |      100 |   76.47 |   90.38 |                   
  models            |     100 |      100 |     100 |     100 |                   
+  AuditModel.ts    |     100 |      100 |     100 |     100 |                   
   EventModel.ts    |     100 |      100 |     100 |     100 |                   
   UserModel.ts     |     100 |      100 |     100 |     100 |                   
- services          |   88.15 |      100 |   76.92 |      90 |                   
+ services          |   87.09 |      100 |      75 |   88.23 |                   
+  AuditService.ts  |   78.57 |      100 |   66.66 |      75 | 22-24             
   EventService.ts  |     100 |      100 |     100 |     100 |                   
   HealthService.ts |       0 |      100 |       0 |       0 | 1-13              
-  UserService.ts   |     100 |      100 |     100 |     100 |                   
+  UserService.ts   |     100 |      100 |     100 |     100 |            
