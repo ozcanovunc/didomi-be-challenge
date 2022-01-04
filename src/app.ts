@@ -11,6 +11,9 @@ import { EventModel } from './api/models/EventModel';
 import { EventController } from './api/controllers/EventController';
 import { EventService } from './api/services/EventService';
 import { TerminusModule } from '@nestjs/terminus';
+import { AuditModel } from './api/models/AuditModel';
+import { AuditService } from './api/services/AuditService';
+import { AuditController } from './api/controllers/AuditController';
 
 @Module({
   imports: [
@@ -31,23 +34,27 @@ import { TerminusModule } from '@nestjs/terminus';
       entities: [
         UserModel,
         EventModel,
+        AuditModel,
       ]
     }),
     TerminusModule,
     TypeOrmModule.forFeature([
       UserModel,
       EventModel,
+      AuditModel,
     ]),
   ],
   controllers: [
     UserController,
     HealthController,
     EventController,
+    AuditController,
   ],
   providers: [
     UserService,
     HealthService,
     EventService,
+    AuditService,
   ],
 })
 export class AppModule { }

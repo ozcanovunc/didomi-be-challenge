@@ -6,6 +6,7 @@ import { UserRepositoryFake } from "./fake/UserRepositoryFake";
 import { EventModel } from "../../api/models/EventModel";
 import { EventRepositoryFake } from "./fake/EventRepositoryFake";
 import { EventService } from "../../api/services/EventService";
+import { AuditService } from "../../api/services/AuditService";
 
 describe('EventService', () => {
   let eventService: EventService;
@@ -23,6 +24,12 @@ describe('EventService', () => {
         {
           provide: getRepositoryToken(EventModel),
           useClass: EventRepositoryFake,
+        },
+        {
+          provide: AuditService,
+          useValue: {
+            createAuditForUser: jest.fn()
+          }
         }
       ],
     }).compile();
